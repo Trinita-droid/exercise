@@ -1,0 +1,37 @@
+name : deployment_ex2
+on : push
+jobs :
+  lint:
+    runs-on: windows-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm ci
+      - name: lint
+        uses: npm run lint
+  test:
+    needs: lint
+    runs-on: windows-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm ci
+      - name: test code
+        uses: npm run test@v3
+  deploy:
+    needs: test
+    runs-on: windows-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: npm ci
+      - name: build code
+        run: npm run build
+      - name: deploy code
+        run: echo "deploying.."
+
+
+ 
