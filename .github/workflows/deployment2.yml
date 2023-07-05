@@ -11,6 +11,7 @@ jobs :
       - name: lint
         uses: npm run lint
   test:
+    needs: lint
     runs-on: windows-latest
     steps:
       - name: Get code
@@ -20,6 +21,7 @@ jobs :
       - name: test code
         uses: npm run test
   deploy:
+    needs: test
     runs-on: windows-latest
     steps:
       - name: get code
