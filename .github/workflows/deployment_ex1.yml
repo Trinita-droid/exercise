@@ -10,8 +10,8 @@ jobs :
             uses : actions/setup-node@v3
             #    with :
             #     node-version : 18
-          - name : install dependencies
-            run :  npm install #or npm install
+#           - name : install dependencies
+#             run :  npm ci #or npm install
             #   running lint script and build script and output some deploy message
           - name : lint 
             run : npm run lint #to run lint script
