@@ -2,7 +2,7 @@
 name: handle issues
 on: issues
 jobs:
-    issue trigger info:
+    issue_trigger_info:
         runs-on: windows-latest
         steps:
             - name: output event details
